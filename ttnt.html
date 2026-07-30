@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTNT 6 - Seasons | Njugush Creatives</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Paystack Inline JS SDK -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background-image: url('3.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Branding -->
+    <header class="py-6 border-b border-white/10 text-center backdrop-blur-md bg-slate-950/40">
+        <p class="text-xs tracking-widest text-red-500 font-bold uppercase">Njugush Creatives Ltd Presents</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide mt-1">
+            TTNT <span class="text-red-600">6</span>
+        </h1>
+        <p class="italic text-amber-400 font-semibold text-lg md:text-xl">Seasons</p>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full">
+        
+        <!-- Key Event Details Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-center">
+            <div class="bg-slate-950/70 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-lg">
+                <p class="text-xs text-slate-400 font-medium uppercase">Date</p>
+                <p class="text-lg font-bold text-white">1st August 2026</p>
+            </div>
+            <div class="bg-slate-950/70 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-lg">
+                <p class="text-xs text-slate-400 font-medium uppercase">Venue</p>
+                <p class="text-lg font-bold text-white">Sarit Expo Centre</p>
+            </div>
+            <div class="bg-slate-950/70 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-lg">
+                <p class="text-xs text-slate-400 font-medium uppercase">Gates Open</p>
+                <p class="text-lg font-bold text-red-500">4:00 PM</p>
+            </div>
+        </div>
+
+        <!-- Ticket Purchase Options -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-center mb-6">Select Your Tickets</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Comrades Ticket -->
+                <div class="bg-slate-950/70 backdrop-blur-md border border-white/10 rounded-xl p-6 flex flex-col justify-between text-center relative overflow-hidden shadow-lg">
+                    <div>
+                        <h3 class="text-slate-400 uppercase font-semibold text-sm">Comrades Ticket</h3>
+                        <div class="text-3xl font-black my-4 text-white">1,500/=</div>
+                    </div>
+                    <button onclick="payWithPaystack(1500, 'Comrades Ticket')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200">
+                        Buy Now
+                    </button>
+                </div>
+
+                <!-- Advance Ticket -->
+                <div class="bg-slate-950/80 backdrop-blur-md border-2 border-red-600 rounded-xl p-6 flex flex-col justify-between text-center relative overflow-hidden shadow-xl shadow-red-900/30">
+                    <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3 uppercase">Popular</span>
+                    <div>
+                        <h3 class="text-slate-400 uppercase font-semibold text-sm">Advance Ticket</h3>
+                        <div class="text-3xl font-black my-4 text-white">2,500/=</div>
+                    </div>
+                    <button onclick="payWithPaystack(2500, 'Advance Ticket')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200">
+                        Buy Now
+                    </button>
+                </div>
+
+                <!-- Couple Ticket (Sold Out) -->
+                <div class="bg-slate-950/40 backdrop-blur-md border border-white/10 rounded-xl p-6 flex flex-col justify-between text-center relative opacity-60">
+                    <span class="bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3 uppercase">Sold Out</span>
+                    <div>
+                        <h3 class="text-slate-500 uppercase font-semibold text-sm">Couple Ticket</h3>
+                        <div class="text-3xl font-black my-4 text-slate-500 line-through">4,500/=</div>
+                    </div>
+                    <button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-3 px-4 rounded-lg cursor-not-allowed">
+                        Unavailable
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Keep Informed / Email Notification -->
+        <section class="bg-slate-950/70 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 text-center max-w-2xl mx-auto shadow-lg">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Don't Miss Out!</h2>
+            <p class="text-slate-400 text-sm mb-6">Enter your email address to receive updates, schedule drops, and future event alerts.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    required 
+                    class="bg-slate-900/80 border border-slate-700 text-white px-4 py-3 rounded-lg flex-1 focus:outline-none focus:border-red-500 transition"
+                >
+                <button type="submit" class="bg-white hover:bg-slate-200 text-slate-950 font-bold px-6 py-3 rounded-lg transition duration-200">
+                    Get Notified
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-white/10 text-center text-slate-400 text-xs backdrop-blur-md bg-slate-950/40">
+        <p class="mb-1">Ticketed by <strong>MADFUN</strong></p>
+        <p>&copy; 2026 Njugush Creatives Ltd. All rights reserved.</p>
+    </footer>
+
+    <!-- Paystack Integration Script -->
+    <script>
+        function payWithPaystack(amount, ticketType) {
+            // Prompt customer for email if not pre-collected
+            let userEmail = prompt("Please enter your email to proceed with the ticket purchase for " + ticketType + ":");
+            
+            if (!userEmail) {
+                return; // User cancelled
+            }
+
+            let handler = PaystackPop.setup({
+                key: 'pk_live_0c7001077a32d547c1474f46412efb895a557d67', // Replace with your actual Paystack Public Key (e.g. pk_live_xxx or pk_test_xxx)
+                email: userEmail,
+                amount: amount * 100, // Paystack expects amount in sub-units (cents)
+                currency: 'KES', // Set currency to KES (or your preferred currency code)
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: "Ticket Type",
+                            variable_name: "ticket_type",
+                            value: ticketType
+                        }
+                    ]
+                },
+                onClose: function() {
+                    alert('Transaction cancelled.');
+                },
+                callback: function(response) {
+                    alert('Payment successful! Reference: ' + response.reference);
+                    // You can perform post-payment tasks here, such as redirecting or calling an n8n webhook
+                }
+            });
+
+            handler.openIframe();
+        }
+    </script>
+
+</body>
+</html>
